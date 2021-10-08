@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital@0;1&display=swap');
+body {
+    background: #F5DCB4;
+}
+
+nav {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 1px 6px rgba(0, 0, 0, 0.23);
+    font-weight: bold;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.main {
+    background: rgba(255, 255, 255, 0.795);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.16), 2px 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.contenedorForm {
+    margin: 2% 25% 0 25%;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.16), 1px 6px 6px rgba(0, 0, 0, 0.23);
+}
