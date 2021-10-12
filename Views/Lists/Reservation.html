@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 3.3.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/list.css">
+    <link rel="stylesheet" href="../../css/reservation.css">
+    <title>Lista de Reservas</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-light ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../../assets/logo.png" width="32" height="28" class="d-inline-block align-text-top"> Tienda de Disfraces
+            </a>
+        </div>
+    </nav>
+
+    <div class="container main mt-4">
+        <div class="adentro">
+            <div class="row">
+                <div class="col">
+                    <h2>Lista de Reservas</h2>
+                </div>
+                <div class="col text-end">
+                    <button onclick="openNReserva()" class="btn btn-dark">Nueva Reserva</button>
+                </div>
+            </div>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Id_Cliente</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Fecha de inicio</th>
+                        <th>Fecha de Fin</th>
+                        <th>Calificación</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyList">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modals" id="formCrear">
+        <div class="popup">
+            <i class="fas fa-times-circle" id="close-popup"></i>
+            <div class="contenedorP">
+                <div class="iconC text-center">
+                    <img src="../../assets/client.png" alt="" height="80">
+                </div>
+                <h2 class="text-center title">Formulario de creación de nueva reserva</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="costume" class="form-label">Disfraz</label>
+                        <select class="form-select" name="costume" id="costume"></select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="client" class="form-label">Cliente</label>
+                        <select class="form-select" name="client" id="client"></select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dateI" class="form-label">Día de Inicio</label>
+                        <input type="text" class="form-control" value="hoy" id="dateI" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="dateE" class="form-label">Día de Entrega</label>
+                        <input type="date" class="form-control" id="dateE" required>
+                    </div>
+
+                    <button onclick="createReservation()" type="button" class="btn btn-outline-dark">Crear nuevo cliente</button>
+                    <button onclick="cancelReservation()" type="reset" class="btn btn-outline-danger">Cancelar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modals" id="formCalificar">
+        <div class="popup">
+            <i class="fas fa-times-circle cerrarc" id="close-popup"></i>
+            <div class="contenedorP">
+                <div class="iconC text-center">
+                    <img src="../../assets/client.png" alt="" height="80">
+                </div>
+                <h2 class="text-center title">Calificar Reserva</h2>
+                <form>
+
+                    <div class="mb-3">
+                        <label for="rate" class="form-label">Selecciona una calificación</label>
+                        <select name="rate" id="rate">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Deja un mensaje</label>
+                        <input type="text" class="form-control" id="message" required>
+                    </div>
+
+                    <button onclick="calificarReservacion()" type="button" class="btn btn-outline-dark">Calificar</button>
+                    <button onclick="cancelarReservacion()" type="reset" class="btn btn-outline-danger">Cancelar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+    <script src="../../javascript/Reservation/validarReservation.js"></script>
+    <script src="../../javascript/Reservation/reservation.js"></script>
+    <script src="../../javascript/Reservation/createReservation.js"></script>
+    <script src="../../javascript/Reservation/calificar.js"></script>
+
+</body>
+
+</html>

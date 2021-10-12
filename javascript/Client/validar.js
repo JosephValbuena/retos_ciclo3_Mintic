@@ -4,17 +4,13 @@ function validaesVacio(dato) {
 
 function validarNew() {
     //obtiene valores
-    let id = $("#idClient").val();
     let name = $("#name").val();
     let email = $("#email").val();
     let age = $("#age").val();
-    $("#mensajes").html("");
+    var password = $("#password").val();
 
     //valida que los campos no sean vacios
-    if (validaesVacio(id)) {
-        Swal.fire('El id no puede ser vacío');
-        return false;
-    } else if (validaesVacio(name)) {
+    if (validaesVacio(name)) {
         Swal.fire('El nombre no puede ser vacío');
         return false;
     } else if (validaesVacio(email)) {
@@ -22,6 +18,9 @@ function validarNew() {
         return false;
     } else if (validaesVacio(age)) {
         Swal.fire('La edad no pueden ser vacía');
+        return false;
+    } else if (validaesVacio(password)) {
+        Swal.fire('La contraseña no puede ser vacía');
         return false;
     }
 
@@ -35,18 +34,19 @@ function validarEdit() {
     var email = $("#emailEdit").val();
     var age = $("#ageEdit").val();
 
+
     //valida que los campos no sean vacios
     if (validaesVacio(id)) {
-        alert("El id no puede ser vacío");
+        Swal.fire('El id no puede ser vacío');
         return false;
     } else if (validaesVacio(name)) {
-        alert("El nombre no puede ser vacío");
+        Swal.fire('El nombre no puede ser vacío');
         return false;
     } else if (validaesVacio(email)) {
-        alert("El email no puede ser vacío");
+        Swal.fire('El correo no puede ser vacío');
         return false;
     } else if (validaesVacio(age)) {
-        alert("La edad no puede ser vacío");
+        Swal.fire('La edad no puede ser vacía');
         return false;
     }
 

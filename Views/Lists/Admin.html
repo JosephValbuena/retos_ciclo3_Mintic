@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"
         <!-- Custom CSS -->
     <link rel="stylesheet" href="../../css/list.css">
-    <title>Lista de Mensajes</title>
+    <title>Lista de Administradores</title>
 </head>
 
 <body>
@@ -25,52 +25,62 @@
     <div class="container main mt-5">
         <div class="row">
             <div class="col">
-                <h2>Lista de Mensajes</h2>
+                <h2>Lista de Administradores</h2>
             </div>
             <div class="col text-end">
-                <button onclick="openNMessage()" class="btn btn-dark">Nuevo Mensaje</button>
+                <button onclick="openNAdmin()" class="btn btn-dark">Nuevo Administrador</button>
             </div>
         </div>
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Mensaje</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody id="tbody">
-            </tbody>
-        </table>
-    </div>
-    >
+        <div class="contentL">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Edad</th>
+                    </tr>
+                </thead>
+                <tbody id="bodyList">
+                </tbody>
+            </table>
+        </div>
 
-    <div class="modals" id="formNew">
+    </div>
+
+    <div class="modals" id="formCrear">
         <div class="popup">
             <i class="fas fa-times-circle" id="close-popup"></i>
             <div class="contenedorP">
                 <div class="iconC text-center">
-                    <img src="../../assets/mensaje-movil.png" alt="" height="80">
+                    <img src="../../assets/client.png" alt="" height="80">
                 </div>
-                <h2 class="text-center title">Formulario de creación de nuevo mensaje</h2>
+                <h2 class="text-center title">Crear Nuevo Adminsitrador</h2>
                 <br>
                 <form>
+
                     <div class="mb-3">
-                        <label for="idMessage" class="form-label">Id traje</label>
-                        <select class="form-select" name="costume" id="costume"></select>
+                        <label for="name" class="form-label">Nombre del Admin</label>
+                        <input type="text" class="form-control" id="name" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="idMessage" class="form-label">Id Cliente</label>
-                        <select class="form-select" name="client" id="client"></select>
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="email" required>
                     </div>
 
                     <div class="mb-3">
-                        <label for="floatingTextarea">Comments</label>
-                        <textarea class="form-control" placeholder="Leave a comment here" id="message"></textarea>
-
+                        <label for="age" class="form-label">Edad</label>
+                        <input type="number" class="form-control" id="age" required>
                     </div>
-                    <button onclick="createMessage()" type="button" class="btn btn-dark">Enviar Mensaje</button>
-                    <button onclick="cancelMessage()" type="button" class="btn btn-danger">Cancelar</button>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+
+                    <button onclick="createAdmin()" type="button" class="btn btn-outline-dark">Crear nuevo admin</button>
+                    <button onclick="cancelAdmin()" type="reset" class="btn btn-outline-danger">Cancelar</button>
                 </form>
 
             </div>
@@ -80,12 +90,9 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
-    <script src="../../javascript/Message/validar.js"></script>
-    <script src="../../javascript/Message/message.js"></script>
-    <script src="../../javascript/Message/editarMessage.js"></script>
-    <script src="../../javascript/Message/crearMessage.js"></script>
-    <script src="../../javascript/Message/EliminarMessage.js"></script>
-
+    <script src="../../javascript/Admin/validateAdmin.js"></script>
+    <script src="../../javascript/Admin/admin.js"></script>
+    <script src="../../javascript/Admin/createAdmin.js"></script>
 </body>
 
 </html>

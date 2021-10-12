@@ -5,31 +5,32 @@ function openNClient() {
 
 function createClient() {
     var datos = {
-        id: $("#idClient").val(),
         name: $("#name").val(),
         email: $("#email").val(),
-        age: $("#age").val()
+        age: $("#age").val(),
+        password: $("#password").val()
     };
+
+    var dataToSend = JSON.stringify(datos);
 
     if (validarNew()) {
 
         $.ajax({
-            url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
+            url: "http://localhost:8080/api/Client/save",
             type: "POST",
-            data: datos,
+            data: dataToSend,
             dataType: "json",
-            statusCode: {
-                201: function() {
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Se ha creado el nuevo cliente',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    getClients();
-                    cancelClient();
-                }
+            contentType: "application/json",
+            success: function(data) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Se ha creado el nuevo cliente',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                getClients();
+                cancelClient();
             },
             error: function(message) {
                 Swal.fire({
@@ -74,3 +75,7 @@ function comprobarId(data) {
 
     return true;
 }
+
+$("#close-popup").click(function() {
+    $("#formCrear").hide();
+});

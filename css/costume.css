@@ -46,6 +46,7 @@ h2 {
 .popup {
     width: 100%;
     max-width: 800px;
+    height: 90%;
     position: relative;
     top: 50%;
     left: 50%;
@@ -71,10 +72,4 @@ h2 {
 #close-popup:hover {
     cursor: pointer;
     background: rgb(150, 150, 150);
-}
-
-.contentL {
-    background: #fff;
-    padding: 10px;
-    border-radius: 10px;
 }

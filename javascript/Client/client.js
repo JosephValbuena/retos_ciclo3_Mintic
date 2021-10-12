@@ -6,10 +6,11 @@ $(document).ready(function() {
 
 function getClients() {
     $.ajax({
-        url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
+        url: "http://localhost:8080/api/Client/all",
         type: "GET",
         success: function(data) {
-            clientLists(data.items);
+            console.log(data);
+            clientLists(data);
         }
     });
 }
