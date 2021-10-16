@@ -10,6 +10,7 @@ function getMessages() {
         url: "http://localhost:8080/api/Message/all",
         type: "GET",
         success: function(data) {
+            console.log(data);
             sendListMesages(data);
         }
     });
@@ -24,6 +25,8 @@ function sendListMesages(data) {
 
         datos += `
         <tr>
+            <td>${data[i].costume.name}</td>
+            <td>${data[i].client.name}</td>
             <td>${data[i].messagetext}</td>
             <td>
                 <button onclick="editMessage(${data[i].id})" type="button" class="btn btn-dark">Editar</button>

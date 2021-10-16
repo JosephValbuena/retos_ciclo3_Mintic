@@ -24,7 +24,9 @@ function newCostume() {
     var nCostume = {
         brand: $("#brand").val(),
         year: $("#year").val(),
-        category_id: $("#category").val(),
+        category_id: {
+            id: $("#category").val()
+        },
         name: $("#name").val(),
         description: $("#description").val()
     };
@@ -38,17 +40,31 @@ function newCostume() {
             data: dataToSend,
             contentType: "application/json",
             dataType: "JSON",
-            success: function() {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Se ha subido el nuevo disfraz',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+            statusCode: {
+                200: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha subido el nuevo disfraz',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
 
-                listar();
-                cancelar();
+                    listar();
+                    cancelar();
+                },
+                201: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha subido el nuevo disfraz',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    listar();
+                    cancelar();
+                }
             }
         });
     }

@@ -10,7 +10,6 @@ function getCategories() {
         type: "GET",
         success: function(data) {
             putCategories(data);
-            getCostumes(data);
         },
         error: function(message) {
             Swal.fire({
@@ -64,68 +63,31 @@ function putCategories(data) {
 
     $("#categoryT").html(categories);
     $("#tablesC").html(tables);
+
+    putCostumes(data);
 }
 
-function getCostumes(categories) {
-    $.ajax({
-        url: "http://localhost:8080/api/Costume/all",
-        type: "GET",
-        success: function(data) {
-            putCostumes(data, categories);
-        }
-    });
-}
 
-function putCostumes(data, categories) {
+function putCostumes(data) {
 
-    var objetos = new Map();
-    var guardar = [];
-    var costumes = "";
+    var putCostum = "";
 
     for (var i = 0; i < data.length; i++) {
-        for (var j = 0; j < categories.length; j++) {
-            if (data[i].category_id == categories[j].id) {
-                costumes = `
-                    <tr>
-                        <td>${data[i].brand}</td>
-                        <td>${data[i].year}</td>
-                        <td>${data[i].category_id}</td>
-                        <td>${data[i].name}</td>
-                        <td>${data[i].description}</td>
-                    </tr>
-                `;
+        var costumes = data[i].costumes;
+        for (var j = 0; j < costumes.length; j++) {
 
-                guardar.push(costumes);
-
-                if (objetos.size == 0) {
-                    objetos.set(categories[j].id, guardar);
-                    guardar = [];
-                    break;
-                }
-
-                if (objetos.has(categories[j].id)) {
-                    var nuevo = objetos.get(categories[j].id);
-                    nuevo.push(costumes);
-                    objetos.set(categories[j].id, nuevo);
-                } else {
-                    objetos.set(categories[j].id, guardar);
-                }
-
-                guardar = [];
-            }
+            putCostum += `
+            <tr>
+                <td>${costumes[j].brand}</td>
+                <td>${costumes[j].year}</td>
+                <td>${data[i].id}</td>
+                <td>${costumes[j].name}</td>
+                <td>${costumes[j].description}</td>
+            </tr>
+            `;
         }
+        $(`#tbody-${data[i].id}`).html(putCostum);
+        putCostum = "";
     }
-
-    for (let [key, value] of objetos) {
-
-        var datos = "";
-        for (var i = 0; i < value.length; i++) {
-            datos += value[i];
-        }
-
-        $("#tbody-" + key).html(datos);
-    }
-
-
 
 }

@@ -37,11 +37,15 @@ function openNReserva() {
 function createReservation() {
 
     datos = {
-        id_costume: $("#costume").val(),
-        id_client: $("#client").val(),
-        start_date: fecha(),
-        deliver_date: $("#dateE").val(),
-        status: "Creado"
+        startDate: fecha(),
+        devolutionDate: $("#dateE").val(),
+        client: {
+            id: $("#client").val()
+        },
+        costume: {
+            id: $("#costume").val()
+        },
+        status: "Created"
     }
 
     dataToSend = JSON.stringify(datos);
@@ -55,6 +59,18 @@ function createReservation() {
             contentType: "application/json; charset=utf-8",
             statusCode: {
                 200: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha creado la nueva reserva',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    getReservation();
+                    cancelReservation();
+                },
+                201: function() {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',

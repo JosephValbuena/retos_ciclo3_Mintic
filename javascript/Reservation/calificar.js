@@ -7,12 +7,16 @@ function calificar(id) {
 
 function calificarReservacion() {
     datos = {
-        id_booking: idReservation,
-        rate: $("#rate").val(),
-        message: $("#message").val()
+        starts: $("#rate").val(),
+        messageText: $("#message").val(),
+        reservation: {
+            id: idReservation
+        }
     };
 
     dataToSend = JSON.stringify(datos);
+
+    console.log(datos);
 
     if (validarC()) {
         $.ajax({

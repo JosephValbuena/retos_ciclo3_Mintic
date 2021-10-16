@@ -34,10 +34,16 @@ function openNMessage() {
 }
 
 function createMessage() {
+
+
     var datos = {
-        id_costume: $("#costume").val(),
-        id_client: $("#client").val(),
-        messagetext: $("#message").val()
+        "messagetext": $("#message").val(),
+        costume: {
+            id: $("#costume").val()
+        },
+        client: {
+            id: $("#client").val()
+        },
     };
 
     console.log(datos)
@@ -54,6 +60,18 @@ function createMessage() {
             dataType: "json",
             statusCode: {
                 200: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha creado el nuevo mensaje',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    getMessages();
+                    cancelMessage();
+                },
+
+                201: function() {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',

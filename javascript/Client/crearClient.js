@@ -21,16 +21,29 @@ function createClient() {
             data: dataToSend,
             dataType: "json",
             contentType: "application/json",
-            success: function(data) {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Se ha creado el nuevo cliente',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                getClients();
-                cancelClient();
+            statusCode: {
+                200: function(data) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha creado el nuevo cliente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    getClients();
+                    cancelClient();
+                },
+                201: function(data) {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha creado el nuevo cliente',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    getClients();
+                    cancelClient();
+                }
             },
             error: function(message) {
                 Swal.fire({

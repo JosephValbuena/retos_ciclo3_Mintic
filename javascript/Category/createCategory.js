@@ -3,17 +3,6 @@ function openNewCategory() {
     $("#formCrear").show();
 }
 
-$("#close-popup").click(function() {
-    $("#formEditar").hide();
-    $("#formCrear").hide();
-});
-
-function cancelCategory() {
-    $("#formEditar").hide();
-    $("#formCrear").hide();
-}
-
-
 function createCategory() {
 
     datos = {
@@ -30,19 +19,40 @@ function createCategory() {
             data: dataToSend,
             dataType: "json",
             contentType: "application/json; charset=utf-8",
-            success: function(data) {
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Se ha creado la nueva categoria',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                getCategories();
-                cancelCategory();
+            statusCode: {
+                200: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha creado la nueva categoria',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    getCategories();
+                    cancelCategory();
+                },
+                201: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha creado la nueva categoria',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    getCategories();
+                    cancelCategory();
+                }
             }
         });
     }
+}
 
+$("#close-popup").click(function() {
+    $("#formEditar").hide();
+    $("#formCrear").hide();
+});
 
+function cancelCategory() {
+    $("#formEditar").hide();
+    $("#formCrear").hide();
 }
