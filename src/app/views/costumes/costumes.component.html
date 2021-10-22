@@ -1,0 +1,93 @@
+<div class="container main mt-5">
+    <div class="row">
+        <div class="col">
+            <h2>Lista de Disfraces</h2>
+        </div>
+
+        <div class="col text-end">
+            <button onclick="openForm()" class="btn btn-dark" type="button">Nuevo Disfraz</button>
+        </div>
+    </div>
+    <table id="tabla" class="table table-hover">
+        <thead>
+            <tr>
+                <th>Marca</th>
+                <th>Año</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+</div>
+
+<div class="contenedorForm" *ngIf="editControl">
+    <div class="iconC text-center">
+        <img src="../../assets/disfraz.png" alt="" height="60">
+    </div>
+    <h2 class="text-center title">Editar o Eliminar difraz</h2>
+    <br>
+    <form>
+        <div class="mb-3">
+            <label for="idCostume" class="form-label">Id de disfraz</label>
+            <input type="number" class="form-control" id="idCostumeEdit" aria-describedby="emailHelp" disabled>
+        </div>
+        <div class="mb-3">
+            <label for="brand" class="form-label">Brand (marca)</label>
+            <input type="text" class="form-control" id="brandEdit">
+        </div>
+        <div class="mb-3">
+            <label for="model" class="form-label">Model (modelo)</label>
+            <input type="number" class="form-control" id="modelEdit">
+        </div>
+        <div class="mb-3">
+            <label for="category" class="form-label">Id de Categoria</label>
+            <input type="number" class="form-control" id="categoryEdit">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre del disfraz</label>
+            <input type="text" class="form-control" id="nameEdit">
+        </div>
+        <button type="submit" class="btn btn-dark">Editar Disfraz</button>
+    </form>
+
+</div>
+
+<div class="modals" *ngIf="modalControl">
+    <div class="popup">
+        <i class="fas fa-times-circle" id="close-popup"></i>
+        <div class="contenedorP">
+            <h3 class="text-center title">Formulario de creación de nuevo difraz</h3>
+            <div>
+
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="brand">
+                </div>
+                <div class="mb-3">
+                    <label for="year" class="form-label">Año</label>
+                    <input type="number" class="form-control" id="year">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">nombre</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="mb-3">
+                    <label for="category" class="form-label">Categoria</label>
+                    <select class="form-select" name="category" id="category"></select>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Descripcion</label>
+                    <input type="text" class="form-control" id="description">
+                </div>
+
+                <button onclick="newCostume()" type="button" class="btn btn-dark crearC">Crear nuevo Disfraz</button>
+                <button onclick="cancelar()" type="reset" class="btn btn-danger">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br><br>
