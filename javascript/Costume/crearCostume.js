@@ -24,7 +24,7 @@ function newCostume() {
     var nCostume = {
         brand: $("#brand").val(),
         year: $("#year").val(),
-        category_id: {
+        category: {
             id: $("#category").val()
         },
         name: $("#name").val(),
@@ -71,7 +71,7 @@ function newCostume() {
 
 }
 
-$("#close-popup").click(function() {
+$(".closeCrear").click(function() {
     $("#cNuevo").hide();
 });
 

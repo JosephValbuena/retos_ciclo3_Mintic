@@ -24,7 +24,7 @@ function openNMessage() {
             var option = "";
             for (var i = 0; i < data.length; i++) {
                 option += `
-                    <option value="${data[i].id}">${data[i].name}</option>
+                    <option value="${data[i].idClient}">${data[i].name}</option>
                 `
             }
 
@@ -34,25 +34,22 @@ function openNMessage() {
 }
 
 function createMessage() {
-
-
     var datos = {
-        "messagetext": $("#message").val(),
-        costume: {
+        "messageText": $("#message").val(),
+        "costume": {
             id: $("#costume").val()
         },
-        client: {
-            id: $("#client").val()
+        "client": {
+            idClient: $("#client").val()
         },
     };
 
-    console.log(datos)
+    console.log(datos);
 
     var dataToSend = JSON.stringify(datos);
 
     if (validarNew()) {
-
-        var ver = $.ajax({
+        $.ajax({
             url: "http://localhost:8080/api/Message/save",
             type: "POST",
             data: dataToSend,
@@ -84,8 +81,6 @@ function createMessage() {
                 }
             }
         });
-
-        console.log(ver);
     }
 }
 

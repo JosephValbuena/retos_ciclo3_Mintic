@@ -44,7 +44,7 @@
             </tbody>
         </table>
     </div>
-    >
+
 
     <div class="modals" id="formNew">
         <div class="popup">
@@ -73,6 +73,44 @@
                     </div>
                     <button onclick="createMessage()" type="button" class="btn btn-dark">Enviar Mensaje</button>
                     <button onclick="cancelMessage()" type="button" class="btn btn-danger">Cancelar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modals" id="formEdit">
+        <div class="popup">
+            <i class="fas fa-times-circle closeEdit" id="close-popup"></i>
+            <div class="contenedorP">
+                <div class="iconC text-center">
+                    <img src="../../assets/mensaje-movil.png" alt="" height="80">
+                </div>
+                <h2 class="text-center title">Edición de mensaje</h2>
+                <br>
+                <form>
+                    <div class="mb-3">
+                        <label for="idMessage" class="form-label">Id Mensaje</label>
+                        <input type="text" class="form-control" id="idEdit" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idMessage" class="form-label">Id traje</label>
+                        <input type="text" class="form-control" id="costumeEdit" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="idMessage" class="form-label">Id Cliente</label>
+                        <input type="text" class="form-control" id="clientEdit" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="floatingTextarea">Comments</label>
+                        <textarea class="form-control" id="messageEdit"></textarea>
+
+                    </div>
+                    <button onclick="sendEditMesage()" type="button" class="btn btn-dark">Enviar Mensaje</button>
+                    <button onclick="cancelEdit()" type="button" class="btn btn-danger">Cancelar</button>
                 </form>
 
             </div>

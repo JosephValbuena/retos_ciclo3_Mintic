@@ -31,6 +31,17 @@ function createAdmin() {
                     });
                     getAdmins();
                     cancelAdmin();
+                },
+                201: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha creado el nuevo Admin',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    getAdmins();
+                    cancelAdmin();
                 }
             }
         });

@@ -7,10 +7,10 @@ function calificar(id) {
 
 function calificarReservacion() {
     datos = {
-        starts: $("#rate").val(),
+        stars: $("#rate").val(),
         messageText: $("#message").val(),
         reservation: {
-            id: idReservation
+            idReservation: idReservation
         }
     };
 
@@ -30,7 +30,18 @@ function calificarReservacion() {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Se ha creado el nuevo mensaje',
+                        title: 'Se ha calificado la reserva',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    getReservation();
+                    cancelarReservacion();
+                },
+                201: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha calificado la reserva',
                         showConfirmButton: false,
                         timer: 1500
                     });

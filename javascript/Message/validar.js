@@ -15,18 +15,14 @@ function validarNew() {
     return true;
 }
 
-// function validarEdit() {
-//     let id = $("#idMessageEdit").val();
-//     let message = $("#messageEdit").val();
+function validarEdit() {
 
-//     valida que los campos no sean vacios
-//     if (validaesVacio(id)) {
-//         Swal.fire('El id no puede ser vacío');
-//         return false;
-//     } else if (validaesVacio(message)) {
-//         Swal.fire('El mensaje no puede ser vacío');
-//         return false;
-//     }
+    var message = $("#messageEdit").val();
 
-//     return true;
-// }
+    if (validaesVacio(message)) {
+        Swal.fire('El mensaje no puede ser vacío');
+        return false;
+    }
+
+    return true;
+}

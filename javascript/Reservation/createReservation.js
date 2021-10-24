@@ -24,7 +24,7 @@ function openNReserva() {
         success: function(data) {
             for (var i = 0; i < data.length; i++) {
                 datos += `
-                <option value="${data[i].id}">${data[i].name}</option>
+                <option value="${data[i].idClient}">${data[i].name}</option>
                 `;
             }
 
@@ -40,7 +40,7 @@ function createReservation() {
         startDate: fecha(),
         devolutionDate: $("#dateE").val(),
         client: {
-            id: $("#client").val()
+            idClient: $("#client").val()
         },
         costume: {
             id: $("#costume").val()
@@ -49,6 +49,7 @@ function createReservation() {
     }
 
     dataToSend = JSON.stringify(datos);
+    console.log(datos);
 
     if (validar()) {
         $.ajax({

@@ -10,20 +10,19 @@ function deleteCostume(id) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            var idCatch = {
-                id: id
-            };
-
-            var toSend = JSON.stringify(idCatch);
-
             $.ajax({
-                url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/costume/costume",
+                url: "http://localhost:8080/api/Costume/" + id,
                 type: "DELETE",
-                data: toSend,
-                contentType: "application/JSON",
-                dataType: "json",
                 statusCode: {
-                    204: function() {
+                    200: function() {
+                        listar();
+                        Swal.fire(
+                            'Eliminado!',
+                            'El disfraz ha sido eliminado.',
+                            'success'
+                        );
+                    },
+                    201: function() {
                         listar();
                         Swal.fire(
                             'Eliminado!',

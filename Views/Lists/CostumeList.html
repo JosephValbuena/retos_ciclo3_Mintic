@@ -47,41 +47,39 @@
         </table>
     </div>
 
-    <div class="contenedorForm" id="cEditar">
-        <div class="iconC text-center">
-            <img src="../../assets/disfraz.png" alt="" height="60">
+    <div class="modals" id="cEditar">
+        <div class="popup">
+            <i class="fas fa-times-circle closeEdit" id="close-popup"></i>
+            <div class="contenedorP">
+                <h3 class="text-center title">Editar difraz</h3>
+                <div class="mb-3">
+                    <label for="idCostume" class="form-label">Id de disfraz</label>
+                    <input type="number" class="form-control" id="idCostumeEdit" aria-describedby="emailHelp" disabled>
+                </div>
+                <div class="mb-3">
+                    <label for="brand" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="brandEdit">
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre del disfraz</label>
+                    <input type="text" class="form-control" id="nameEdit">
+                </div>
+                <div class="mb-3">
+                    <label for="model" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="descpEdit">
+                </div>
+                <div class="mb-3">
+                    <label for="model" class="form-label">Año</label>
+                    <input type="number" class="form-control" id="yearEdit">
+                </div>
+                <button onclick="sendEdit()" type="button" class="btn btn-dark">Editar Disfraz</button>
+            </div>
         </div>
-        <h2 class="text-center title">Editar o Eliminar difraz</h2>
-        <br>
-        <form>
-            <div class="mb-3">
-                <label for="idCostume" class="form-label">Id de disfraz</label>
-                <input type="number" class="form-control" id="idCostumeEdit" aria-describedby="emailHelp" disabled>
-            </div>
-            <div class="mb-3">
-                <label for="brand" class="form-label">Brand (marca)</label>
-                <input type="text" class="form-control" id="brandEdit">
-            </div>
-            <div class="mb-3">
-                <label for="model" class="form-label">Model (modelo)</label>
-                <input type="number" class="form-control" id="modelEdit">
-            </div>
-            <div class="mb-3">
-                <label for="category" class="form-label">Id de Categoria</label>
-                <input type="number" class="form-control" id="categoryEdit">
-            </div>
-            <div class="mb-3">
-                <label for="name" class="form-label">Nombre del disfraz</label>
-                <input type="text" class="form-control" id="nameEdit">
-            </div>
-            <button type="submit" class="btn btn-dark">Editar Disfraz</button>
-        </form>
-
     </div>
 
     <div class="modals" id="cNuevo">
         <div class="popup">
-            <i class="fas fa-times-circle" id="close-popup"></i>
+            <i class="fas fa-times-circle closeCrear" id="close-popup"></i>
             <div class="contenedorP">
                 <h3 class="text-center title">Formulario de creación de nuevo difraz</h3>
                 <div>

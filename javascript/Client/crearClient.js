@@ -62,32 +62,8 @@ function cancelClient() {
     $("#formCrear").hide();
 }
 
-function getListClients() {
-    $.ajax({
-        url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
-        type: "GET",
-        success: function(data) {
-            comprobarId(data.items);
-        }
-    });
-}
 
-function comprobarId(data) {
-    var id = $("#idClient").val();
 
-    for (var i = 0; i < data.length; i++) {
-        if (id == data[i].id) {
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: 'No se pueden tener dos IDs iguales!'
-            });
-            return false;
-        }
-    }
-
-    return true;
-}
 
 $("#close-popup").click(function() {
     $("#formCrear").hide();

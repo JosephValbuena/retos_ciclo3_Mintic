@@ -19,10 +19,9 @@ function putAdmins(data) {
     for (var i = 0; i < data.length; i++) {
         admins += `
                     <tr>
-                        <td>${data[i].id}</td>
+                        <td>${data[i].idAdmin}</td>
                         <td>${data[i].name}</td>
                         <td>${data[i].email}</td>
-                        <td>${data[i].age}</td>
                     </tr>
                 `;
     }

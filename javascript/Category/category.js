@@ -30,7 +30,10 @@ function putCategories(data) {
             <tr>
                 <td>${data[i].name}</td>
                 <td>${data[i].description}</td>
-                <td><button onclick="editCategory(${data[i].id})" class="btn btn-dark">editar</button></td>
+                <td>
+                    <button onclick="editCategory(${data[i].id})" class="btn btn-dark">editar</button>
+                    <button onclick="deleteCategory(${data[i].id})" class="btn btn-danger">Eliminar</button>
+                </td>
             </tr>
         `;
 

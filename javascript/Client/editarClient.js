@@ -1,33 +1,45 @@
 function editClient(id) {
     $.ajax({
-        url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client/" + id,
+        url: "http://localhost:8080/api/Client/" + id,
         type: "GET",
         success: function(data) {
+            putClient(data);
             $("#formEditar").show();
-            $("#formCrear").hide();
-            putClient(data.items);
         }
     });
 }
 
 function sendClient() {
     var datos = {
-        id: $("#idClientEdit").val(),
+        idClient: $("#idEdit").val(),
         name: $("#nameEdit").val(),
         email: $("#emailEdit").val(),
-        age: $("#ageEdit").val()
+        age: $("#ageEdit").val(),
+        password: $("#passwordEdit").val()
     };
 
     var dataToSend = JSON.stringify(datos);
-
     if (validarEdit()) {
         $.ajax({
-            url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/client/client",
-            type: "PUT",
+            url: "http://localhost:8080/api/Client/update",
+            type: "put",
             data: dataToSend,
             contentType: "application/json",
             dataType: "JSON",
             statusCode: {
+                200: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha subido el nuevo usuario',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    getClients();
+                    $("#formEditar").hide();
+                    $("#formCrear").hide();
+                },
                 201: function() {
                     Swal.fire({
                         position: 'center',
@@ -51,13 +63,24 @@ function sendClient() {
                 });
             }
         });
+    } else {
+        console.log("no pase")
     }
 
 }
 
 function putClient(data) {
-    $("#idClientEdit").val(data[0].id);
-    $("#nameEdit").val(data[0].name);
-    $("#emailEdit").val(data[0].email);
-    $("#ageEdit").val(data[0].age);
+    $("#idEdit").val(data.idClient);
+    $("#nameEdit").val(data.name);
+    $("#emailEdit").val(data.email);
+    $("#ageEdit").val(data.age);
+    $("#passwordEdit").val(data.password);
 }
+
+function cancelEdit() {
+    $("#formEditar").hide();
+}
+
+$(".closeEdit").click(function() {
+    $("#formEditar").hide();
+});

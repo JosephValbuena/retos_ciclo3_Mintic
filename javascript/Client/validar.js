@@ -29,7 +29,7 @@ function validarNew() {
 
 function validarEdit() {
     //obtiene valores
-    var id = $("#idClientEdit").val();
+    var id = $("#idEdit").val();
     var name = $("#nameEdit").val();
     var email = $("#emailEdit").val();
     var age = $("#ageEdit").val();

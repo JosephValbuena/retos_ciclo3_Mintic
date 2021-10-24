@@ -27,10 +27,10 @@ function sendListMesages(data) {
         <tr>
             <td>${data[i].costume.name}</td>
             <td>${data[i].client.name}</td>
-            <td>${data[i].messagetext}</td>
+            <td>${data[i].messageText}</td>
             <td>
-                <button onclick="editMessage(${data[i].id})" type="button" class="btn btn-dark">Editar</button>
-                <button onclick="deleteMessage(${data[i].id})" type="button" class="btn btn-danger">Eliminar</button>
+                <button onclick="editMessage(${data[i].idMessage})" type="button" class="btn btn-dark">Editar</button>
+                <button onclick="deleteMessage(${data[i].idMessage})" type="button" class="btn btn-danger">Eliminar</button>
             </td>
         </tr>`
 

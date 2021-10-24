@@ -1,9 +1,12 @@
 function editMessage(id) {
     $.ajax({
-        url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/message/message/" + id,
+        url: "http://localhost:8080/api/Message/" + id,
         type: "GET",
         success: function(data) {
-            putMessageData(data.items);
+            $("#idEdit").val(data.idMessage);
+            $("#costumeEdit").val(data.costume.id);
+            $("#clientEdit").val(data.client.idClient);
+            $("#messageEdit").val(data.messageText);
         }
     });
 
@@ -11,34 +14,53 @@ function editMessage(id) {
     $("#formNew").hide();
 }
 
-function sendEdit() {
+function sendEditMesage() {
     var datos = {
-        id: $("#idMessageEdit").val(),
-        messagetext: $("#messageEdit").val()
+        "idMessage": parseInt($("#idEdit").val(), 10),
+        "costume": {
+            "id": parseInt($("#costumeEdit").val(), 10)
+        },
+        "client": {
+            "idClient": parseInt($("#clientEdit").val(), 10)
+        },
+        "messageText": $("#messageEdit").val()
     };
 
     var dataToSend = JSON.stringify(datos);
 
+    console.log(datos);
+
     if (validarEdit()) {
         $.ajax({
-            url: "https://gfc2a689900fbad-db202109230629.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/message/message",
-            type: "PUT",
+            url: "http://localhost:8080/api/Message/update",
+            type: "put",
             dataType: "JSON",
             data: dataToSend,
             contentType: "application/json",
             statusCode: {
-                201: function() {
+                200: function() {
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Se ha subido el nuevo usuario',
+                        title: 'Se ha actualizado el usuario',
                         showConfirmButton: false,
                         timer: 1500
                     });
 
                     getMessages();
                     $("#formEdit").hide();
-                    $("#formNew").hide();
+                },
+                201: function() {
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Se ha actualizado el usuario',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    getMessages();
+                    $("#formEdit").hide();
                 }
             },
 
@@ -47,7 +69,10 @@ function sendEdit() {
 
 }
 
-function putMessageData(data) {
-    $("#idMessageEdit").val(data[0].id);
-    $("#messageEdit").val(data[0].messagetext);
+function cancelEdit() {
+    $("#formEdit").hide();
 }
+
+$(".closeEdit").click(function() {
+    $("#formEdit").hide();
+});
