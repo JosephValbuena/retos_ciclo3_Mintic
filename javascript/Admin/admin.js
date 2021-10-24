@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $("#formCrear").hide();
+    $("#formEdit").hide();
     getAdmins();
 });
 
@@ -22,6 +23,10 @@ function putAdmins(data) {
                         <td>${data[i].idAdmin}</td>
                         <td>${data[i].name}</td>
                         <td>${data[i].email}</td>
+                        <td>
+                            <button onclick="editAdmin(${data[i].idAdmin})" class="btn btn-dark">Editar</button>
+                            <button onclick="deleteAdmin(${data[i].idAdmin})" class="btn btn-danger">Eliminar</button>
+                        </td>
                     </tr>
                 `;
     }

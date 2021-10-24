@@ -7,7 +7,6 @@ function createAdmin() {
     data = {
         name: $("#name").val(),
         email: $("#email").val(),
-        age: $("#age").val(),
         password: $("#password").val()
     };
 

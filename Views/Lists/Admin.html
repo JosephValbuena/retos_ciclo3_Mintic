@@ -69,11 +69,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="age" class="form-label">Edad</label>
-                        <input type="number" class="form-control" id="age" required>
-                    </div>
-
-                    <div class="mb-3">
                         <label for="password" class="form-label">Contraseña</label>
                         <input type="password" class="form-control" id="password" required>
                     </div>
@@ -86,12 +81,52 @@
         </div>
     </div>
 
+    <div class="modals" id="formEdit">
+        <div class="popup">
+            <i class="fas fa-times-circle closeEdit" id="close-popup"></i>
+            <div class="contenedorP">
+                <div class="iconC text-center">
+                    <img src="../../assets/client.png" alt="" height="80">
+                </div>
+                <h2 class="text-center title">Editar Adminsitrador</h2>
+                <br>
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Id del Admin</label>
+                        <input type="text" class="form-control" id="idEdit" required disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Nombre del Admin</label>
+                        <input type="text" class="form-control" id="nameEdit" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="emailEdit" required disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control" id="passwordEdit" required>
+                    </div>
+
+                    <button onclick="sendEdit()" type="button" class="btn btn-outline-dark">Editar admin</button>
+                    <button onclick="cancelEdit()" type="reset" class="btn btn-outline-danger">Cancelar</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
     <script src="../../javascript/Admin/validateAdmin.js"></script>
     <script src="../../javascript/Admin/admin.js"></script>
     <script src="../../javascript/Admin/createAdmin.js"></script>
+    <script src="../../javascript/Admin/editAdmin.js"></script>
+    <script src="../../javascript/Admin/deleteAdmin.js"></script>
 </body>
 
 </html>
