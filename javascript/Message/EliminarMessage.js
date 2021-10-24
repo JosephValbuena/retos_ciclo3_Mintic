@@ -12,7 +12,7 @@ function deleteMessage(id) {
 
 
             $.ajax({
-                url: "http://localhost:8080/api/Message/" + id,
+                url: "http://129.151.118.226:8080/api/Message/" + id,
                 type: "DELETE",
                 statusCode: {
                     200: function() {

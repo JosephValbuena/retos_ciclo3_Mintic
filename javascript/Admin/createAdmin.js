@@ -14,7 +14,7 @@ function createAdmin() {
 
     if (validar()) {
         $.ajax({
-            url: "http://localhost:8080/api/Admin/save",
+            url: "http://129.151.118.226:8080/api/Admin/save",
             type: "POST",
             dataType: "json",
             contentType: "application/json; charset=utf-8",

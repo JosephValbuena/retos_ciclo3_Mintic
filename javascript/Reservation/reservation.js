@@ -12,7 +12,7 @@ var lista = "";
 function getReservation() {
     lista = "";
     $.ajax({
-        url: "http://localhost:8080/api/Reservation/all",
+        url: "http://129.151.118.226:8080/api/Reservation/all",
         type: "GET",
         success: function(datos) {
             console.log(datos);

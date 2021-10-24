@@ -11,7 +11,7 @@ function deleteCostume(id) {
         if (result.isConfirmed) {
 
             $.ajax({
-                url: "http://localhost:8080/api/Costume/" + id,
+                url: "http://129.151.118.226:8080/api/Costume/" + id,
                 type: "DELETE",
                 statusCode: {
                     200: function() {

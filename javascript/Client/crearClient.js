@@ -16,7 +16,7 @@ function createClient() {
     if (validarNew()) {
 
         $.ajax({
-            url: "http://localhost:8080/api/Client/save",
+            url: "http://129.151.118.226:8080/api/Client/save",
             type: "POST",
             data: dataToSend,
             dataType: "json",

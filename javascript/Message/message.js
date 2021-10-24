@@ -7,7 +7,7 @@ $(document).ready(function() {
 function getMessages() {
 
     $.ajax({
-        url: "http://localhost:8080/api/Message/all",
+        url: "http://129.151.118.226:8080/api/Message/all",
         type: "GET",
         success: function(data) {
             console.log(data);

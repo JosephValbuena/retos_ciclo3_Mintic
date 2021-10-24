@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 function getClients() {
     $.ajax({
-        url: "http://localhost:8080/api/Client/all",
+        url: "http://129.151.118.226:8080/api/Client/all",
         type: "GET",
         success: function(data) {
             clientLists(data);

@@ -14,7 +14,7 @@ function createCategory() {
 
     if (validarNew()) {
         $.ajax({
-            url: "http://localhost:8080/api/Category/save",
+            url: "http://129.151.118.226:8080/api/Category/save",
             type: "POST",
             data: dataToSend,
             dataType: "json",

@@ -3,7 +3,7 @@ function openForm() {
     $("#cEditar").hide();
 
     $.ajax({
-        url: "http://localhost:8080/api/Category/all",
+        url: "http://129.151.118.226:8080/api/Category/all",
         type: "GET",
         success: function(data) {
             var options = "";
@@ -35,7 +35,7 @@ function newCostume() {
 
     if (validarNew()) {
         $.ajax({
-            url: "http://localhost:8080/api/Costume/save",
+            url: "http://129.151.118.226:8080/api/Costume/save",
             type: "POST",
             data: dataToSend,
             contentType: "application/json",

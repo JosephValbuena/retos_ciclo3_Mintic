@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 function getAdmins() {
     $.ajax({
-        url: "http://localhost:8080/api/Admin/all",
+        url: "http://129.151.118.226:8080/api/Admin/all",
         type: "GET",
         success: function(data) {
             putAdmins(data);

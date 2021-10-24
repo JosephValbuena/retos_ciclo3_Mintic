@@ -3,7 +3,7 @@ function openNMessage() {
     $("#formNew").show();
 
     $.ajax({
-        url: "http://localhost:8080/api/Costume/all",
+        url: "http://129.151.118.226:8080/api/Costume/all",
         type: "GET",
         success: function(data) {
             var option = "";
@@ -18,7 +18,7 @@ function openNMessage() {
     });
 
     $.ajax({
-        url: "http://localhost:8080/api/Client/all",
+        url: "http://129.151.118.226:8080/api/Client/all",
         type: "GET",
         success: function(data) {
             var option = "";
@@ -50,7 +50,7 @@ function createMessage() {
 
     if (validarNew()) {
         $.ajax({
-            url: "http://localhost:8080/api/Message/save",
+            url: "http://129.151.118.226:8080/api/Message/save",
             type: "POST",
             data: dataToSend,
             contentType: "application/json",

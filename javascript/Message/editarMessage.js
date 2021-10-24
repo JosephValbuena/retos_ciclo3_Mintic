@@ -1,6 +1,6 @@
 function editMessage(id) {
     $.ajax({
-        url: "http://localhost:8080/api/Message/" + id,
+        url: "http://129.151.118.226:8080/api/Message/" + id,
         type: "GET",
         success: function(data) {
             $("#idEdit").val(data.idMessage);
@@ -32,7 +32,7 @@ function sendEditMesage() {
 
     if (validarEdit()) {
         $.ajax({
-            url: "http://localhost:8080/api/Message/update",
+            url: "http://129.151.118.226:8080/api/Message/update",
             type: "put",
             dataType: "JSON",
             data: dataToSend,

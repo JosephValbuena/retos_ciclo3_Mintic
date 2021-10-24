@@ -3,7 +3,7 @@ function openNReserva() {
     var datos = "";
     $.ajax({
 
-        url: "http://localhost:8080/api/Costume/all",
+        url: "http://129.151.118.226:8080/api/Costume/all",
         type: "GET",
         success: function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -19,7 +19,7 @@ function openNReserva() {
 
     $.ajax({
 
-        url: "http://localhost:8080/api/Client/all",
+        url: "http://129.151.118.226:8080/api/Client/all",
         type: "GET",
         success: function(data) {
             for (var i = 0; i < data.length; i++) {
@@ -53,7 +53,7 @@ function createReservation() {
 
     if (validar()) {
         $.ajax({
-            url: "http://localhost:8080/api/Reservation/save",
+            url: "http://129.151.118.226:8080/api/Reservation/save",
             type: "POST",
             dataType: "json",
             data: dataToSend,

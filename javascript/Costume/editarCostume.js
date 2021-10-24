@@ -1,6 +1,6 @@
 function editCostume(id) {
     $.ajax({
-        url: "http://localhost:8080/api/Costume/" + id,
+        url: "http://129.151.118.226:8080/api/Costume/" + id,
         type: "GET",
         success: function(data) {
             console.log(data);
@@ -24,7 +24,7 @@ function sendEdit() {
 
     if (validarEdit()) {
         $.ajax({
-            url: "http://localhost:8080/api/Costume/update",
+            url: "http://129.151.118.226:8080/api/Costume/update",
             type: "PUT",
             data: dataToSend,
             dataType: "json",

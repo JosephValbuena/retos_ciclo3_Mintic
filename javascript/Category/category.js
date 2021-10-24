@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 function getCategories() {
     $.ajax({
-        url: "http://localhost:8080/api/Category/all",
+        url: "http://129.151.118.226:8080/api/Category/all",
         type: "GET",
         success: function(data) {
             putCategories(data);

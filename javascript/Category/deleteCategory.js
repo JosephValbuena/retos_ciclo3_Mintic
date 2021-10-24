@@ -10,7 +10,7 @@ function deleteCategory(id) {
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
-                url: "http://localhost:8080/api/Category/" + id,
+                url: "http://129.151.118.226:8080/api/Category/" + id,
                 type: 'delete',
                 statusCode: {
                     200: function() {

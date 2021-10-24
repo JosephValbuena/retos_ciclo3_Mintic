@@ -20,7 +20,7 @@ function calificarReservacion() {
 
     if (validarC()) {
         $.ajax({
-            url: "http://localhost:8080/api/Score/save",
+            url: "http://129.151.118.226:8080/api/Score/save",
             type: "POST",
             data: dataToSend,
             dataType: "json",

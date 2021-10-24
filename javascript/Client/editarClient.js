@@ -1,6 +1,6 @@
 function editClient(id) {
     $.ajax({
-        url: "http://localhost:8080/api/Client/" + id,
+        url: "http://129.151.118.226:8080/api/Client/" + id,
         type: "GET",
         success: function(data) {
             putClient(data);
@@ -21,7 +21,7 @@ function sendClient() {
     var dataToSend = JSON.stringify(datos);
     if (validarEdit()) {
         $.ajax({
-            url: "http://localhost:8080/api/Client/update",
+            url: "http://129.151.118.226:8080/api/Client/update",
             type: "put",
             data: dataToSend,
             contentType: "application/json",

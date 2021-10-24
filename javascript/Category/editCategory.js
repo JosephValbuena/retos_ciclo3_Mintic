@@ -1,6 +1,6 @@
 function editCategory(id) {
     $.ajax({
-        url: "http://localhost:8080/api/Category/" + id,
+        url: "http://129.151.118.226:8080/api/Category/" + id,
         type: "GET",
         success: function(data) {
             console.log(data);
@@ -23,7 +23,7 @@ function sendEdit() {
 
     if (validarEdit()) {
         $.ajax({
-            url: "http://localhost:8080/api/Category/update",
+            url: "http://129.151.118.226:8080/api/Category/update",
             type: "put",
             data: dataToSend,
             dataType: "JSON",
